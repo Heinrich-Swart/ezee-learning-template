@@ -7,56 +7,56 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import AutoFixHighRoundedIcon from '@mui/icons-material/AutoFixHighRounded';
-import ConstructionRoundedIcon from '@mui/icons-material/ConstructionRounded';
-import QueryStatsRoundedIcon from '@mui/icons-material/QueryStatsRounded';
-import SettingsSuggestRoundedIcon from '@mui/icons-material/SettingsSuggestRounded';
+import AccessTimeRoundedIcon from '@mui/icons-material/AccessTimeRounded';
+import SchoolRoundedIcon from '@mui/icons-material/SchoolRounded';
+import LiveTvRoundedIcon from '@mui/icons-material/LiveTvRounded';
+import GroupsRoundedIcon from '@mui/icons-material/GroupsRounded';
 import SupportAgentRoundedIcon from '@mui/icons-material/SupportAgentRounded';
-import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded';
+import EmojiEventsRoundedIcon from '@mui/icons-material/EmojiEventsRounded';
 
 const items = [
   {
-    icon: <SettingsSuggestRoundedIcon />,
-    title: 'Adaptable performance',
+    icon: <AccessTimeRoundedIcon />,
+    title: 'Flexible Learning',
     description:
-      'Our product effortlessly adjusts to your needs, boosting efficiency and simplifying your tasks.',
+      "Learn anytime, anywhere with a schedule that fits your family's lifestyle and your child's pace.",
   },
   {
-    icon: <ConstructionRoundedIcon />,
-    title: 'Built to last',
+    icon: <SchoolRoundedIcon />,
+    title: 'Curriculum-Aligned',
     description:
-      'Experience unmatched durability that goes above and beyond with lasting investment.',
+      "Our lessons are tailored to align with academic standards while remaining engaging and easy to follow.",
   },
   {
-    icon: <ThumbUpAltRoundedIcon />,
-    title: 'Great user experience',
+    icon: <LiveTvRoundedIcon />,
+    title: 'Interactive Classes',
     description:
-      'Integrate our product into your routine with an intuitive and easy-to-use interface.',
+      "Live sessions led by qualified tutors make learning fun, personal, and effective.",
   },
   {
-    icon: <AutoFixHighRoundedIcon />,
-    title: 'Innovative functionality',
+    icon: <GroupsRoundedIcon />,
+    title: 'Supportive Community',
     description:
-      'Stay ahead with features that set new standards, addressing your evolving needs better than the rest.',
+      "Join a vibrant learning community with parent groups, peer interaction, and collaborative growth.",
   },
   {
     icon: <SupportAgentRoundedIcon />,
-    title: 'Reliable support',
+    title: 'Dedicated Support',
     description:
-      'Count on our responsive customer support, offering assistance that goes beyond the purchase.',
+      "Our friendly team is always ready to assist with technical help, academic queries, or general guidance.",
   },
   {
-    icon: <QueryStatsRoundedIcon />,
-    title: 'Precision in every detail',
+    icon: <EmojiEventsRoundedIcon />,
+    title: 'Trackable Progress',
     description:
-      'Enjoy a meticulously crafted product where small touches make a significant impact on your overall experience.',
+      "Stay on top of your child's journey with clear reports, milestone tracking, and continuous feedback.",
   },
 ];
 
-export default function Highlights() {
+export default function OurPromise() {
   return (
     <Box
-      id="highlights"
+      id="ourPromise"
       sx={{
         pt: { xs: 4, sm: 12 },
         pb: { xs: 8, sm: 16 },
@@ -80,12 +80,14 @@ export default function Highlights() {
           }}
         >
           <Typography component="h2" variant="h4" gutterBottom>
-            Highlights
+            Our Promise
           </Typography>
           <Typography variant="body1" sx={{ color: 'grey.400' }}>
-            Explore why our product stands out: adaptability, durability,
-            user-friendly design, and innovation. Enjoy reliable customer support and
-            precision in every detail.
+          At Ezee Learning Centre, we’re committed to delivering quality education that's flexible, 
+          accessible, and effective. From expert support and engaging content to a user-friendly experience—every 
+          detail is designed to help your child succeed, wherever they are.
+
+
           </Typography>
         </Box>
         <Grid container spacing={2}>

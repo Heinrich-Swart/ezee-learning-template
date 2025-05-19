@@ -10,7 +10,7 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/X';
 import EzeeLearningLogo from './EzeeLearningLogo';
@@ -18,7 +18,7 @@ import EzeeLearningLogo from './EzeeLearningLogo';
 function Copyright() {
   return (
     <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
-      {'Copyright © '} 
+      {'Copyright © '}
       EzeeLearning
       &nbsp;
       {new Date().getFullYear()}
@@ -56,13 +56,30 @@ export default function Footer() {
         >
           <Box sx={{ width: { xs: '100%', sm: '60%' } }}>
             <EzeeLearningLogo />
-            <Typography variant="body2" gutterBottom sx={{ fontWeight: 600, mt: 2 }}>
-              Join the newsletter
+            <Typography
+              variant="h1"
+              sx={{
+                display: 'flex',
+                flexDirection: { xs: 'column', sm: 'row' },
+                alignItems: 'center',
+                fontSize: 'clamp(1rem, 1vw, 3.5rem)',
+              }}
+            >
+              Start&nbsp;your kids&nbsp;
+              <Typography
+                component="span"
+                variant="h1"
+                sx={(theme) => ({
+                  fontSize: 'inherit',
+                  color: 'primary.main',
+                  ...theme.applyStyles('dark', {
+                    color: 'primary.light',
+                  }),
+                })}
+              >
+                FUTURE
+              </Typography>
             </Typography>
-            <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>
-              Subscribe for weekly updates. No spams ever!
-            </Typography>
-            <InputLabel htmlFor="email-newsletter">Email</InputLabel>
             <Stack direction="row" spacing={1} useFlexGap>
               <TextField
                 id="email-newsletter"
@@ -86,9 +103,17 @@ export default function Footer() {
                 size="small"
                 sx={{ flexShrink: 0 }}
               >
-                Subscribe
+                Join the team
               </Button>
+
             </Stack>
+            <Typography
+              variant="caption"
+              color="text.secondary"
+              sx={{ textAlign: 'center' }}
+            >
+              By clicking &quot;Join the team&quot; you invest in your kids future&nbsp;
+            </Typography>
           </Box>
         </Box>
         <Box
@@ -189,11 +214,11 @@ export default function Footer() {
           <IconButton
             color="inherit"
             size="small"
-            href="https://github.com/mui"
-            aria-label="GitHub"
+            href="https://www.instagram.com/ezee.learning.centre/"
+            aria-label="Instagram"
             sx={{ alignSelf: 'center' }}
           >
-            <GitHubIcon />
+            <InstagramIcon />
           </IconButton>
           <IconButton
             color="inherit"

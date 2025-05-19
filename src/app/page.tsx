@@ -2,38 +2,54 @@
 
 import * as React from 'react';
 import FAQ from '@/components/FAQ';
-import Features from '@/components/Features';
+import ProgrammeOverview from '@/components/programmeOverview';
 import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
-import Highlights from '@/components/Highlights';
-import LogoCollection from '@/components/LogoCollection';
+import OurPromise from '@/components/OurPromise';
 import Pricing from '@/components/Pricing';
 import Testimonials from '@/components/Testimonials';
 import AppTheme from '@/shared-theme/AppTheme';
+import Button from '@mui/material/Button';
+import InputLabel from '@mui/material/InputLabel';
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import visuallyHidden from '@mui/utils/visuallyHidden';
+import Container from '@mui/material/Container';
 
 //MUI
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
-import AppAppBar from '@/components/AppAppBar';
+import NavBar from '@/components/NavBar';
 
-export default function MarketingPage(props: { disableCustomTheme?: boolean }) {
+export default function EzeeLearingPage(props: { disableCustomTheme?: boolean }) {
   return (
     <AppTheme {...props}>
       <CssBaseline enableColorScheme />
 
-      <AppAppBar />
+      <NavBar />
       <Hero />
       <div>
-        <LogoCollection />
-        <Features />
+        {/* <LogoCollection /> */}
+        <div id="programme-overview">
+          <ProgrammeOverview />
+        </div>
         <Divider />
-        <Testimonials />
+        <div id="testimonials">
+          <Testimonials />
+        </div>
         <Divider />
-        <Highlights />
+        <div id="our-promise">
+          <OurPromise />
+        </div>
         <Divider />
-        <Pricing />
+        <div id="pricing">
+          <Pricing />
+        </div>
         <Divider />
-        <FAQ />
+        <div id="faq">
+          <FAQ />
+        </div>
         <Divider />
         <Footer />
       </div>

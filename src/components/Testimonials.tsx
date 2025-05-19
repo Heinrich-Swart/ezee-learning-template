@@ -13,46 +13,46 @@ import { useTheme } from '@mui/system';
 
 const userTestimonials = [
   {
-    avatar: <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />,
-    name: 'Remy Sharp',
-    occupation: 'Senior Engineer',
+    avatar: <Avatar alt="Karen Zoid" src="/static/images/avatar/1.jpg" />,
+    name: 'Karen Zoid',
+    reviewer: 'Parent if a Grade 12 learner',
     testimonial:
-      "I absolutely love how versatile this product is! Whether I'm tackling work projects or indulging in my favorite hobbies, it seamlessly adapts to my changing needs. Its intuitive design has truly enhanced my daily routine, making tasks more efficient and enjoyable.",
+      "Enrolling my child in Ezee Learning Centre has been one of the best decisions we've made. The flexibility and support have made homeschooling stress-free and effective.",
   },
   {
-    avatar: <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />,
-    name: 'Travis Howard',
-    occupation: 'Lead Product Designer',
+    avatar: <Avatar alt="Jack Parrow" src="/static/images/avatar/2.jpg" />,
+    name: 'Jack Parrow',
+    reviewer: 'Proud dad',
     testimonial:
-      "One of the standout features of this product is the exceptional customer support. In my experience, the team behind this product has been quick to respond and incredibly helpful. It's reassuring to know that they stand firmly behind their product.",
+      "We've seen a huge boost in our daughter's confidence and enthusiasm for learning. The curriculum is engaging and the team is always helpful.",
   },
   {
-    avatar: <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />,
-    name: 'Cindy Baker',
-    occupation: 'CTO',
+    avatar: <Avatar alt="Karlien Van Jaarsveld" src="/static/images/avatar/3.jpg" />,
+    name: 'Karlien Van Jaarsveld',
+    reviewer: 'Homeschooling Parent',
     testimonial:
-      'The level of simplicity and user-friendliness in this product has significantly simplified my life. I appreciate the creators for delivering a solution that not only meets but exceeds user expectations.',
+      "The structured yet flexible program fits perfectly into our routine. I love being more involved in my child's education and seeing real progress.",
   },
   {
-    avatar: <Avatar alt="Remy Sharp" src="/static/images/avatar/4.jpg" />,
-    name: 'Julia Stewart',
-    occupation: 'Senior Engineer',
+    avatar: <Avatar alt="Theuns Jordaan" src="/static/images/avatar/4.jpg" />,
+    name: 'Theuns Jordaan',
+    reviewer: 'Father of a Grade 12 student',
     testimonial:
-      "I appreciate the attention to detail in the design of this product. The small touches make a big difference, and it's evident that the creators focused on delivering a premium experience.",
+      "I was nervous about switching to homeschooling, but Ezee Learning Centre made the transition so smooth. My son is thriving academically and emotionally!",
   },
   {
     avatar: <Avatar alt="Travis Howard" src="/static/images/avatar/5.jpg" />,
-    name: 'John Smith',
-    occupation: 'Product Designer',
+    name: 'Bernice West',
+    reviewer: 'Parent',
     testimonial:
-      "I've tried other similar products, but this one stands out for its innovative features. It's clear that the makers put a lot of thought into creating a solution that truly addresses user needs.",
+      "We appreciate the consistent communication and resources provided. It feels like we're part of a supportive community that truly cares.",
   },
   {
     avatar: <Avatar alt="Cindy Baker" src="/static/images/avatar/6.jpg" />,
-    name: 'Daniel Wolf',
-    occupation: 'CDO',
+    name: 'Brendan Peyper',
+    reviewer: 'Proud parents of two kids',
     testimonial:
-      "The quality of this product exceeded my expectations. It's durable, well-designed, and built to last. Definitely worth the investment!",
+      "From the easy-to-follow lessons to the amazing team, Ezee Learning Centre has exceeded all our expectations!",
   },
 ];
 
@@ -111,9 +111,8 @@ export default function Testimonials() {
           Testimonials
         </Typography>
         <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-          See what our customers love about our products. Discover how we excel in
-          efficiency, durability, and satisfaction. Join us for quality, innovation,
-          and reliable support.
+        See why families love Ezee Learning Centre! Our flexible and engaging homeschooling curriculum helps students thrive at their own pace—anywhere, anytime. 
+        Real stories, real success, and a future full of possibilities.
         </Typography>
       </Box>
       <Grid container spacing={2}>
@@ -147,7 +146,7 @@ export default function Testimonials() {
                 <CardHeader
                   avatar={testimonial.avatar}
                   title={testimonial.name}
-                  subheader={testimonial.occupation}
+                  subheader={testimonial.reviewer}
                 />
                 <img
                   src={logos[index]}
