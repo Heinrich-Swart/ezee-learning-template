@@ -6,9 +6,42 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+// Place this array outside the component or import from a separate file
+const faqData = [
+  {
+    question: "What is GED?",
+    answer: `The GED is an American High School Equivalency Certificate. It is internationally recognized as a high school diploma equivalent or Grade 12 equivalent in South Africa. Many parents choose this after following a variety of home education approaches.
+
+The South African Qualifications Authority (SAQA) evaluates each submission of a foreign qualification on a case-by-case basis. SAQA has evaluated the GED and found the South African National Senior Certificate (NSC) as its closest comparable qualification.`,
+  },
+  {
+    question: "What Are the Requirements for a GED Diploma?",
+    answer: `- GED tests can be taken from 17 years of age.
+- No prior grades are necessary to qualify to write the 4 GED tests.
+- Good knowledge of English comprehension and basic math skills are recommended.
+
+Subjects:
+1. Mathematical Reasoning
+2. Science
+3. Reasoning through Language Arts (Reading, writing and language)
+4. Social Studies
+
+Exams are booked through the GED website and written at Pearson VUE testing centers located at Boston City campuses. There are approximately 45 centers across South Africa.`,
+  },
+  {
+    question: "Can I study with a GED diploma?",
+    answer: `Boston City Campus accepts GED students for many degree programs, provided they achieve the required scores. Boston handles the application process in alignment with USAf requirements. Several universities accept the GED diploma in South Africa.
+
+- GED graduates can also apply for Higher Certificates (NQF Level 5), which may allow credit transfers (up to 50%) into degree programs.
+
+- Overseas: Many universities accept the GED for admission. South African graduates may consider overseas or online universities for degree study.
+
+- SAQA Evaluation: GED graduates can apply to SAQA for certification of an NSC (South Africa National Senior Certificate) as an NQF Level 4 qualification in South Africa.`,
+  },
+];
 
 export default function FAQ() {
   const [expanded, setExpanded] = React.useState<string[]>([]);
@@ -44,111 +77,38 @@ export default function FAQ() {
           textAlign: { sm: 'left', md: 'center' },
         }}
       >
-        Frequently asked questions
+        Frequently Asked Questions
       </Typography>
       <Box sx={{ width: '100%' }}>
-        <Accordion
-          expanded={expanded.includes('panel1')}
-          onChange={handleChange('panel1')}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1d-content"
-            id="panel1d-header"
-          >
-            <Typography component="span" variant="subtitle2">
-              How do I contact customer support if I have a question or issue?
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography
-              variant="body2"
-              gutterBottom
-              sx={{ maxWidth: { sm: '100%', md: '70%' } }}
+        {faqData.map((item, index) => {
+          const panelId = `panel${index + 1}`;
+          return (
+            <Accordion
+              key={panelId}
+              expanded={expanded.includes(panelId)}
+              onChange={handleChange(panelId)}
             >
-              You can reach our customer support team by emailing&nbsp;
-              <Link href="mailto:support@email.com">support@email.com</Link>
-              &nbsp;or calling our toll-free number. We&apos;re here to assist you
-              promptly.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion
-          expanded={expanded.includes('panel2')}
-          onChange={handleChange('panel2')}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel2d-content"
-            id="panel2d-header"
-          >
-            <Typography component="span" variant="subtitle2">
-              Can I return the product if it doesn&apos;t meet my expectations?
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography
-              variant="body2"
-              gutterBottom
-              sx={{ maxWidth: { sm: '100%', md: '70%' } }}
-            >
-              Absolutely! We offer a hassle-free return policy. If you&apos;re not
-              completely satisfied, you can return the product within [number of
-              days] days for a full refund or exchange.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion
-          expanded={expanded.includes('panel3')}
-          onChange={handleChange('panel3')}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel3d-content"
-            id="panel3d-header"
-          >
-            <Typography component="span" variant="subtitle2">
-              What makes your product stand out from others in the market?
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography
-              variant="body2"
-              gutterBottom
-              sx={{ maxWidth: { sm: '100%', md: '70%' } }}
-            >
-              Our product distinguishes itself through its adaptability, durability,
-              and innovative features. We prioritize user satisfaction and
-              continually strive to exceed expectations in every aspect.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion
-          expanded={expanded.includes('panel4')}
-          onChange={handleChange('panel4')}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel4d-content"
-            id="panel4d-header"
-          >
-            <Typography component="span" variant="subtitle2">
-              Is there a warranty on the product, and what does it cover?
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography
-              variant="body2"
-              gutterBottom
-              sx={{ maxWidth: { sm: '100%', md: '70%' } }}
-            >
-              Yes, our product comes with a [length of warranty] warranty. It covers
-              defects in materials and workmanship. If you encounter any issues
-              covered by the warranty, please contact our customer support for
-              assistance.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls={`${panelId}d-content`}
+                id={`${panelId}d-header`}
+              >
+                <Typography component="span" variant="subtitle2">
+                  {item.question}
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography
+                  variant="body2"
+                  gutterBottom
+                  sx={{ whiteSpace: 'pre-line' }}
+                >
+                  {item.answer}
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          );
+        })}
       </Box>
     </Container>
   );

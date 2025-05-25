@@ -9,34 +9,52 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 
-import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
-import EdgesensorHighRoundedIcon from '@mui/icons-material/EdgesensorHighRounded';
-import ViewQuiltRoundedIcon from '@mui/icons-material/ViewQuiltRounded';
+import SchoolRoundedIcon from '@mui/icons-material/SchoolRounded';
+import ChecklistRoundedIcon from '@mui/icons-material/ChecklistRounded';
+import AccessTimeRoundedIcon from '@mui/icons-material/AccessTimeRounded';
+import AutoFixHighRoundedIcon from '@mui/icons-material/AutoFixHighRounded';
+import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded';
 
 const items = [
   {
-    icon: <ViewQuiltRoundedIcon />,
-    title: 'Dashboard',
+    icon: <SchoolRoundedIcon />,
+    title: 'One-on-one Tutoring',
     description:
-      'This item could provide a snapshot of the most important metrics or data points related to the product.',
-    imageLight: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/images/templates/templates-images/dash-light.png")`,
-    imageDark: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/images/templates/templates-images/dash-dark.png")`,
+      'Get personalized support from a certified teacher through one-on-one online tutoring.',
+      imageLight: '/one-on-one.png',
+      imageDark: '/one-on-one.png',
+    },
+  {
+    icon: <ChecklistRoundedIcon />,
+    title: 'Exam Preparation',
+    description:
+      'Access structured resources and tutoring sessions to help you prepare confidently for GED exams.',
+      imageLight: '/exam-prep.png',
+      imageDark: '/exam-prep.png',
   },
   {
-    icon: <EdgesensorHighRoundedIcon />,
-    title: 'Mobile integration',
+    icon: <AccessTimeRoundedIcon />,
+    title: 'Self-Paced Program',
     description:
-      'This item could provide information about the mobile app version of the product.',
-    imageLight: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/images/templates/templates-images/mobile-light.png")`,
-    imageDark: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/images/templates/templates-images/mobile-dark.png")`,
+      'Study anytime, anywhere. Access all learning materials immediately after registration, 24/7 on any device.',
+      imageLight: '/self-paced.png',
+      imageDark: '/self-paced.png',
   },
   {
-    icon: <DevicesRoundedIcon />,
-    title: 'Available on all platforms',
+    icon: <AutoFixHighRoundedIcon />,
+    title: 'Personalized Learning Path',
     description:
-      'This item could let users know the product is available on all platforms, such as web, mobile, and desktop.',
-    imageLight: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/images/templates/templates-images/devices-light.png")`,
-    imageDark: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/images/templates/templates-images/devices-dark.png")`,
+      'Start with a placement test. Let AI guide your study journey by focusing only on areas you need to improve.',
+      imageLight: '/learning-path.png',
+      imageDark: '/learning-path.png',
+  },
+  {
+    icon: <MenuBookRoundedIcon />,
+    title: 'Multi-Format Learning',
+    description:
+      'Learn through bite-sized videos, instant-feedback quizzes, and downloadable workbooks — all designed for mastery.',
+    imageLight: '/multi-format-learning.png',
+    imageDark: '/multi-format-learning.png',
   },
 ];
 
@@ -102,12 +120,12 @@ export function MobileLayout({
         <Box
           sx={(theme) => ({
             mb: 2,
-            backgroundSize: 'cover',
+            backgroundSize: 'contain',
             backgroundPosition: 'center',
             minHeight: 280,
-            backgroundImage: 'var(--items-imageLight)',
+            backgroundImage: `url(${items[selectedItemIndex].imageLight})`,
             ...theme.applyStyles('dark', {
-              backgroundImage: 'var(--items-imageDark)',
+              backgroundImage: `url(${items[selectedItemIndex].imageDark})`,
             }),
           })}
           style={
@@ -143,8 +161,13 @@ export default function ProgrammeOverview() {
   };
 
   const selectedFeature = items[selectedItemIndex];
-
   return (
+    <Box
+      sx={{
+        backgroundColor: '#FBE5A6', // Light gold background
+        color: 'text.primary',
+      }}
+    >
     <Container id="programmeOverview" sx={{ py: { xs: 8, sm: 16 } }}>
       <Box sx={{ width: { sm: '100%', md: '60%' } }}>
         <Typography
@@ -153,7 +176,7 @@ export default function ProgrammeOverview() {
           gutterBottom
           sx={{ color: 'text.primary' }}
         >
-          Product features
+          Ezee learning centre help with:
         </Typography>
         <Typography
           variant="body1"
@@ -252,9 +275,9 @@ export default function ProgrammeOverview() {
                 width: 420,
                 height: 500,
                 backgroundSize: 'contain',
-                backgroundImage: 'var(--items-imageLight)',
+                backgroundImage: `url(${items[selectedItemIndex].imageLight})`,
                 ...theme.applyStyles('dark', {
-                  backgroundImage: 'var(--items-imageDark)',
+                  backgroundImage: `url(${items[selectedItemIndex].imageDark})`,
                 }),
               })}
               style={
@@ -270,5 +293,6 @@ export default function ProgrammeOverview() {
         </Box>
       </Box>
     </Container>
+    </Box>
   );
 }

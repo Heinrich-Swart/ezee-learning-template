@@ -84,18 +84,24 @@ export default function Testimonials() {
   const logos = theme.palette.mode === 'light' ? darkLogos : whiteLogos;
 
   return (
-    <Container
-      id="testimonials"
+    <Box
       sx={{
-        pt: { xs: 4, sm: 12 },
-        pb: { xs: 8, sm: 16 },
-        position: 'relative',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: { xs: 3, sm: 6 },
+        backgroundColor: '#D72638', // Light gold background
+        color: 'text.primary',
       }}
     >
+      <Container
+        id="testimonials"
+        sx={{
+          pt: { xs: 4, sm: 12 },
+          pb: { xs: 8, sm: 16 },
+          position: 'relative',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: { xs: 3, sm: 6 },
+        }}
+      >
       <Box
         sx={{
           width: { sm: '100%', md: '60%' },
@@ -106,11 +112,11 @@ export default function Testimonials() {
           component="h2"
           variant="h4"
           gutterBottom
-          sx={{ color: 'text.primary' }}
+          sx={{ color: 'white' }}
         >
           Testimonials
         </Typography>
-        <Typography variant="body1" sx={{ color: 'text.secondary' }}>
+        <Typography variant="body1" sx={{ color: 'white' }}>
         See why families love Ezee Learning Centre! Our flexible and engaging homeschooling curriculum helps students thrive at their own pace—anywhere, anytime. 
         Real stories, real success, and a future full of possibilities.
         </Typography>
@@ -159,5 +165,6 @@ export default function Testimonials() {
         ))}
       </Grid>
     </Container>
+    </Box>
   );
 }
