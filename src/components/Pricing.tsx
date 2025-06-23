@@ -13,7 +13,6 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  DialogContentText,
   DialogTitle,
   MenuItem,
   TextField,
@@ -70,7 +69,6 @@ const cards = {
 };
 
 function PricingCard({ title, price, timespan, description, subheader }: any) {
-
   return (
     <Card sx={{ p: 3, flex: 1 }}>
       <CardContent>
@@ -108,7 +106,6 @@ function PricingCard({ title, price, timespan, description, subheader }: any) {
 }
 
 export default function Pricing() {
-
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState({
     name: '',
@@ -117,7 +114,7 @@ export default function Pricing() {
     number: '',
     plan: '',
     additionalInfo: '',
-  })
+  });
 
   const handleDialogOpen = () => setOpen(true);
   const handleDialogClose = () => setOpen(false);
@@ -203,19 +200,18 @@ export default function Pricing() {
       <Box
         sx={{
           display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
+          flexDirection: { xs: 'column', md: 'row' },
+          flexWrap: { xs: 'nowrap', md: 'wrap' },
+          alignItems: 'stretch',
           justifyContent: 'center',
           gap: 4,
           width: '100%',
         }}
       >
-        {/* Left Tall Card */}
-        <Box sx={{ flex: '1 1 320px', maxWidth: 360, mt: 22 }}>
+        <Box sx={{ flex: '1 1 320px', maxWidth: 360, mt: { xs: 0, md: 22 } }}>
           <PricingCard {...cards.left} />
         </Box>
 
-        {/* Center Block (Stacked but merged visually) */}
         <Box
           sx={{
             flex: '1 1 320px',
@@ -229,16 +225,17 @@ export default function Pricing() {
           <PricingCard {...cards.centerBottom} />
         </Box>
 
-        {/* Right Tall Card */}
-        <Box sx={{ flex: '1 1 320px', maxWidth: 360, mt: 22 }}>
+        <Box sx={{ flex: '1 1 320px', maxWidth: 360, mt: { xs: 0, md: 22 } }}>
           <PricingCard {...cards.right} />
         </Box>
       </Box>
+
       <Box sx={{ mt: 6 }}>
         <Button variant="contained" size="large" onClick={handleDialogOpen}>
           Let's get chatting
         </Button>
       </Box>
+
       <Dialog open={open} onClose={handleDialogClose} fullWidth maxWidth="sm">
         <DialogTitle
           sx={{
@@ -251,7 +248,6 @@ export default function Pricing() {
           }}
         >
           Contact Form
-
           <IconButton
             aria-label="close"
             onClick={handleDialogClose}
@@ -267,79 +263,31 @@ export default function Pricing() {
         </DialogTitle>
         <DialogContent sx={{ position: 'relative', zIndex: 1 }}>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 1 }}>
-            <TextField
-              label="Name *"
-              variant="outlined"
-              value={form.name}
-              onChange={handleChange('name')}
-              fullWidth
-              sx={{
-                backgroundColor: '#fffbe6',
-                '& .MuiInputBase-root': {
+            {[
+              { label: 'Name *', field: 'name' },
+              { label: 'Surname', field: 'surname' },
+              { label: 'Email', field: 'email', type: 'email' },
+              { label: 'Phone Number', field: 'number', type: 'tel' },
+            ].map(({ label, field, type }) => (
+              <TextField
+                key={field}
+                label={label}
+                value={(form as any)[field]}
+                onChange={handleChange(field)}
+                fullWidth
+                type={type || 'text'}
+                sx={{
                   backgroundColor: '#fffbe6',
-                },
-                '& .MuiInputLabel-root': {
-                  backgroundColor: '#fffbe6',
-                  padding: '0 4px',
-                  zIndex: 1,
-                }
-              }}
-            />
-            <TextField
-              label="Surname"
-              required
-              value={form.surname}
-              onChange={handleChange('surname')}
-              fullWidth
-              sx={{
-                backgroundColor: '#fffbe6',
-                '& .MuiInputBase-root': {
-                  backgroundColor: '#fffbe6',
-                },
-                '& .MuiInputLabel-root': {
-                  backgroundColor: '#fffbe6',
-                  padding: '0 4px',
-                  zIndex: 1,
-                }
-              }}
-            />
-            <TextField
-              label="Email"
-              required
-              type="email"
-              value={form.email}
-              onChange={handleChange('email')}
-              fullWidth
-              sx={{
-                backgroundColor: '#fffbe6',
-                '& .MuiInputBase-root': {
-                  backgroundColor: '#fffbe6',
-                },
-                '& .MuiInputLabel-root': {
-                  backgroundColor: '#fffbe6',
-                  padding: '0 4px',
-                  zIndex: 1,
-                }
-              }}
-            />
-            <TextField
-              label="Phone Number"
-              type="tel"
-              value={form.number}
-              onChange={handleChange('number')}
-              fullWidth
-              sx={{
-                backgroundColor: '#fffbe6',
-                '& .MuiInputBase-root': {
-                  backgroundColor: '#fffbe6',
-                },
-                '& .MuiInputLabel-root': {
-                  backgroundColor: '#fffbe6',
-                  padding: '0 4px',
-                  zIndex: 1,
-                }
-              }}
-            />
+                  '& .MuiInputBase-root': { backgroundColor: '#fffbe6' },
+                  '& .MuiInputLabel-root': {
+                    backgroundColor: '#fffbe6',
+                    padding: '0 4px',
+                    zIndex: 1,
+                  },
+                }}
+              />
+            ))}
+
             <TextField
               label="Type of Plan"
               required
@@ -349,14 +297,12 @@ export default function Pricing() {
               fullWidth
               sx={{
                 backgroundColor: '#fffbe6',
-                '& .MuiInputBase-root': {
-                  backgroundColor: '#fffbe6',
-                },
+                '& .MuiInputBase-root': { backgroundColor: '#fffbe6' },
                 '& .MuiInputLabel-root': {
                   backgroundColor: '#fffbe6',
                   padding: '0 4px',
                   zIndex: 1,
-                }
+                },
               }}
             >
               <MenuItem value="Centre Fees">Centre Fees</MenuItem>
@@ -364,22 +310,22 @@ export default function Pricing() {
               <MenuItem value="Practice Tests">Practice Tests</MenuItem>
               <MenuItem value="Other">Other</MenuItem>
             </TextField>
+
             <TextField
               label="Message (Optional)"
               rows={3}
               value={form.additionalInfo}
               onChange={handleChange('additionalInfo')}
               fullWidth
+              multiline
               sx={{
                 backgroundColor: '#fffbe6',
-                '& .MuiInputBase-root': {
-                  backgroundColor: '#fffbe6',
-                },
+                '& .MuiInputBase-root': { backgroundColor: '#fffbe6' },
                 '& .MuiInputLabel-root': {
                   backgroundColor: '#fffbe6',
                   padding: '0 4px',
                   zIndex: 1,
-                }
+                },
               }}
             />
           </Box>
@@ -390,7 +336,6 @@ export default function Pricing() {
           </Button>
         </DialogActions>
       </Dialog>
-
     </Container>
   );
 }
