@@ -86,7 +86,7 @@ export default function Testimonials() {
   return (
     <Box
       sx={{
-        backgroundColor: '#D72638', // Light gold background
+        backgroundColor: '#D72638',
         color: 'text.primary',
       }}
     >

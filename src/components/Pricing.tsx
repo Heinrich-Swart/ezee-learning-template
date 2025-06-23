@@ -24,6 +24,7 @@ import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import emailjs from 'emailjs-com';
 
 const cards = {
   centerTop: {
@@ -126,7 +127,7 @@ export default function Pricing() {
   };
 
   const handleSubmit = () => {
-    const { name, surname, email, plan } = form;
+    const { name, surname, email, number, plan, additionalInfo } = form;
 
     if (!name || !surname || !email || !plan) {
       toast.error('Please fill in all required fields.');
@@ -139,19 +140,43 @@ export default function Pricing() {
       return;
     }
 
-    // Simulate success
-    toast.success("Your request has been submitted! We'll be in touch.");
-    handleDialogClose();
+    const templateParams = {
+      name: `${name} ${surname}`,
+      email: email,
+      title: plan,
+      message: `
+  A new enquiry has been submitted:
+  
+  Name: ${name} ${surname}
+  Email: ${email}
+  Phone Number: ${number || 'Not provided'}
+  Selected Plan: ${plan}
+  Message: ${additionalInfo || 'No message entered'}
+      `,
+    };
 
-    // Optional: Reset form
-    setForm({
-      name: '',
-      surname: '',
-      email: '',
-      number: '',
-      plan: '',
-      additionalInfo: '',
-    });
+    emailjs.send(
+      'ezeelearn-email-service',
+      'ezeelearn-pricing',
+      templateParams,
+      'JCzjDGZdOwADwXbqF'
+    )
+      .then(() => {
+        toast.success("Your message was sent successfully!");
+        handleDialogClose();
+        setForm({
+          name: '',
+          surname: '',
+          email: '',
+          number: '',
+          plan: '',
+          additionalInfo: '',
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error("Failed to send your message. Please try again later.");
+      });
   };
 
   return (
@@ -240,19 +265,43 @@ export default function Pricing() {
             <CloseIcon />
           </IconButton>
         </DialogTitle>
-        <DialogContent>
+        <DialogContent sx={{ position: 'relative', zIndex: 1 }}>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 1 }}>
             <TextField
-              label="Name"
-              required
+              label="Name *"
+              variant="outlined"
               value={form.name}
               onChange={handleChange('name')}
+              fullWidth
+              sx={{
+                backgroundColor: '#fffbe6',
+                '& .MuiInputBase-root': {
+                  backgroundColor: '#fffbe6',
+                },
+                '& .MuiInputLabel-root': {
+                  backgroundColor: '#fffbe6',
+                  padding: '0 4px',
+                  zIndex: 1,
+                }
+              }}
             />
             <TextField
               label="Surname"
               required
               value={form.surname}
               onChange={handleChange('surname')}
+              fullWidth
+              sx={{
+                backgroundColor: '#fffbe6',
+                '& .MuiInputBase-root': {
+                  backgroundColor: '#fffbe6',
+                },
+                '& .MuiInputLabel-root': {
+                  backgroundColor: '#fffbe6',
+                  padding: '0 4px',
+                  zIndex: 1,
+                }
+              }}
             />
             <TextField
               label="Email"
@@ -260,12 +309,36 @@ export default function Pricing() {
               type="email"
               value={form.email}
               onChange={handleChange('email')}
+              fullWidth
+              sx={{
+                backgroundColor: '#fffbe6',
+                '& .MuiInputBase-root': {
+                  backgroundColor: '#fffbe6',
+                },
+                '& .MuiInputLabel-root': {
+                  backgroundColor: '#fffbe6',
+                  padding: '0 4px',
+                  zIndex: 1,
+                }
+              }}
             />
             <TextField
               label="Phone Number"
               type="tel"
               value={form.number}
               onChange={handleChange('number')}
+              fullWidth
+              sx={{
+                backgroundColor: '#fffbe6',
+                '& .MuiInputBase-root': {
+                  backgroundColor: '#fffbe6',
+                },
+                '& .MuiInputLabel-root': {
+                  backgroundColor: '#fffbe6',
+                  padding: '0 4px',
+                  zIndex: 1,
+                }
+              }}
             />
             <TextField
               label="Type of Plan"
@@ -273,6 +346,18 @@ export default function Pricing() {
               select
               value={form.plan}
               onChange={handleChange('plan')}
+              fullWidth
+              sx={{
+                backgroundColor: '#fffbe6',
+                '& .MuiInputBase-root': {
+                  backgroundColor: '#fffbe6',
+                },
+                '& .MuiInputLabel-root': {
+                  backgroundColor: '#fffbe6',
+                  padding: '0 4px',
+                  zIndex: 1,
+                }
+              }}
             >
               <MenuItem value="Centre Fees">Centre Fees</MenuItem>
               <MenuItem value="Exams">Exams</MenuItem>
@@ -281,10 +366,21 @@ export default function Pricing() {
             </TextField>
             <TextField
               label="Message (Optional)"
-              multiline
               rows={3}
               value={form.additionalInfo}
-              onChange={handleChange('message')}
+              onChange={handleChange('additionalInfo')}
+              fullWidth
+              sx={{
+                backgroundColor: '#fffbe6',
+                '& .MuiInputBase-root': {
+                  backgroundColor: '#fffbe6',
+                },
+                '& .MuiInputLabel-root': {
+                  backgroundColor: '#fffbe6',
+                  padding: '0 4px',
+                  zIndex: 1,
+                }
+              }}
             />
           </Box>
         </DialogContent>

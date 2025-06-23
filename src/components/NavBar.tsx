@@ -49,8 +49,12 @@ export default function NavBar() {
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
+    const headerOffset = 80;
+  
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const y = element.getBoundingClientRect().top + window.scrollY - headerOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+      setOpen(false);
     }
   };
 
@@ -70,43 +74,54 @@ export default function NavBar() {
           <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
             <EzeeLearningLogo />
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <Button variant="text" color="info" size="small" onClick={() => scrollToSection('programme-overview')}>
+              <Button
+                variant="text"
+                size="small"
+                sx={{ color: 'black' }}
+                onClick={() => scrollToSection('programme-overview')}
+              >
                 Programme Overview
               </Button>
-              <Button variant="text" color="info" size="small" onClick={() => scrollToSection('testimonials')}>
+              <Button
+                variant="text"
+                size="small"
+                sx={{ color: 'black' }}
+                onClick={() => scrollToSection('testimonials')}
+              >
                 Testimonials
               </Button>
-              <Button variant="text" color="info" size="small" onClick={() => scrollToSection('our-promise')}>
-              Our Promise
+              <Button
+                variant="text"
+                size="small"
+                sx={{ color: 'black' }}
+                onClick={() => scrollToSection('our-promise')}
+              >
+                Our Promise
               </Button>
-              <Button variant="text" color="info" size="small" onClick={() => scrollToSection('pricing')}>
+              <Button
+                variant="text"
+                size="small"
+                sx={{ color: 'black' }}
+                onClick={() => scrollToSection('pricing')}
+              >
                 Pricing
               </Button>
-              <Button variant="text" color="info" size="small" sx={{ minWidth: 0 }} onClick={() => scrollToSection('faq')}>
+              <Button
+                variant="text"
+                size="small"
+                sx={{ color: 'black' }}
+                onClick={() => scrollToSection('faq')}
+              >
                 FAQ
               </Button>
             </Box>
-          </Box>
-          <Box
-            sx={{
-              display: { xs: 'none', md: 'flex' },
-              gap: 1,
-              alignItems: 'center',
-            }}
-          >
-            <Button color="primary" variant="text" size="small">
-              Sign in
-            </Button>
-            <Button color="primary" variant="contained" size="small">
-              Sign up
-            </Button>
-            <ColorModeIconDropdown />
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: 1 }}>
             <ColorModeIconDropdown size="medium" />
             <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
               <MenuIcon />
             </IconButton>
+
             <Drawer
               anchor="top"
               open={open}
@@ -118,33 +133,18 @@ export default function NavBar() {
               }}
             >
               <Box sx={{ p: 2, backgroundColor: 'background.default' }}>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'flex-end',
-                  }}
-                >
+                <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                   <IconButton onClick={toggleDrawer(false)}>
                     <CloseRoundedIcon />
                   </IconButton>
                 </Box>
 
-                <MenuItem>Programme Overview</MenuItem>
-                <MenuItem>Testimonials</MenuItem>
-                <MenuItem>Our Promise</MenuItem>
-                <MenuItem>Pricing</MenuItem>
-                <MenuItem>FAQ</MenuItem>
+                <MenuItem onClick={() => scrollToSection('programme-overview')}>Programme Overview</MenuItem>
+                <MenuItem onClick={() => scrollToSection('testimonials')}>Testimonials</MenuItem>
+                <MenuItem onClick={() => scrollToSection('our-promise')}>Our Promise</MenuItem>
+                <MenuItem onClick={() => scrollToSection('pricing')}>Pricing</MenuItem>
+                <MenuItem onClick={() => scrollToSection('faq')}>FAQ</MenuItem>
                 <Divider sx={{ my: 3 }} />
-                <MenuItem>
-                  <Button color="primary" variant="contained" fullWidth>
-                    Sign up
-                  </Button>
-                </MenuItem>
-                <MenuItem>
-                  <Button color="primary" variant="outlined" fullWidth>
-                    Sign in
-                  </Button>
-                </MenuItem>
               </Box>
             </Drawer>
           </Box>

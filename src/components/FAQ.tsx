@@ -9,7 +9,6 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-// Place this array outside the component or import from a separate file
 const faqData = [
   {
     question: "What is GED?",
@@ -56,60 +55,109 @@ export default function FAQ() {
     };
 
   return (
-    <Container
-      id="faq"
-      sx={{
-        pt: { xs: 4, sm: 12 },
-        pb: { xs: 8, sm: 16 },
-        position: 'relative',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: { xs: 3, sm: 6 },
-      }}
-    >
-      <Typography
-        component="h2"
-        variant="h4"
+    <Box sx={{ backgroundColor: '#f49ac2', py: 10 }}>
+      <Container
+        id="faq"
         sx={{
-          color: 'text.primary',
-          width: { sm: '100%', md: '60%' },
-          textAlign: { sm: 'left', md: 'center' },
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: { xs: 3, sm: 6 },
         }}
       >
-        Frequently Asked Questions
-      </Typography>
-      <Box sx={{ width: '100%' }}>
-        {faqData.map((item, index) => {
-          const panelId = `panel${index + 1}`;
-          return (
-            <Accordion
-              key={panelId}
-              expanded={expanded.includes(panelId)}
-              onChange={handleChange(panelId)}
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls={`${panelId}d-content`}
-                id={`${panelId}d-header`}
-              >
-                <Typography component="span" variant="subtitle2">
-                  {item.question}
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography
-                  variant="body2"
-                  gutterBottom
-                  sx={{ whiteSpace: 'pre-line' }}
-                >
-                  {item.answer}
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          );
-        })}
-      </Box>
-    </Container>
+        {/* Title */}
+        <Typography
+          component="h2"
+          variant="h4"
+          sx={{
+            color: 'text.primary',
+            width: { sm: '100%', md: '60%' },
+            textAlign: { sm: 'left', md: 'center' },
+          }}
+        >
+          Frequently Asked Questions
+        </Typography>
+
+        {/* Description */}
+        <Typography
+          variant="body1"
+          align="center"
+          sx={{ color: 'text.secondary', maxWidth: 700 }}
+        >
+          Have questions about the GED programme or how EzeeLearning works?
+          We’ve answered some of the most common ones below to help guide your journey.
+        </Typography>
+
+        {/* Accordion List */}
+        <Box sx={{ width: '100%' }}>
+          {faqData.map((item, index) => {
+            const panelId = `panel${index + 1}`;
+            return (
+              <Accordion
+  key={panelId}
+  expanded={expanded.includes(panelId)}
+  onChange={handleChange(panelId)}
+  sx={{
+    backgroundColor: '#f7b3d0',
+    boxShadow: 'none',
+    border: '2px solid #333',
+    borderRadius: 2,
+    '&:before': {
+      display: 'none',
+    },
+    mb: 2,
+  }}
+>
+  <AccordionSummary
+    expandIcon={<ExpandMoreIcon sx={{ color: 'black' }} />}
+    aria-controls={`${panelId}d-content`}
+    id={`${panelId}d-header`}
+    sx={{
+      backgroundColor: '#f7b3d0',
+      '&:hover': {
+        backgroundColor: '#f7b3d0',
+      },
+    }}
+  >
+    <Typography component="span" variant="subtitle2" sx={{ color: 'black' }}>
+      {item.question}
+    </Typography>
+  </AccordionSummary>
+
+  {/* 👇 Black Wavy Divider Restored */}
+  <Box
+  component="svg"
+  viewBox="0 0 500 20"
+  preserveAspectRatio="none"
+  sx={{
+    display: 'block',
+    width: '100%',
+    height: '20px',
+    marginTop: '4px',      // moved slightly down from header
+    marginBottom: '12px',  // spacing before the details
+  }}
+>
+  <path
+    d="M0 0 C 150 30 350 -10 500 20 L500 0 L0 0 Z"
+    fill="#000"
+  />
+</Box>
+
+  <AccordionDetails>
+    <Typography
+      variant="body2"
+      gutterBottom
+      sx={{ whiteSpace: 'pre-line', color: 'black' }}
+    >
+      {item.answer}
+    </Typography>
+  </AccordionDetails>
+</Accordion>
+
+            );
+          })}
+        </Box>
+      </Container>
+    </Box>
   );
 }

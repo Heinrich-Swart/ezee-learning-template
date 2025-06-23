@@ -2,7 +2,7 @@ import { Box, Container, Typography, Card } from '@mui/material';
 
 export default function MeetTheFounder() {
   return (
-    <Box sx={{ backgroundColor: '#fffbe6', py: 10 }}>
+    <Box sx={{ backgroundColor: '#FBE5A6', py: 10 }}>
       <Container maxWidth="md">
         <Box
           sx={{
@@ -22,11 +22,13 @@ export default function MeetTheFounder() {
                 width: 300,
                 height: 360,
                 mx: 'auto',
+                backgroundColor: 'transparent',
+
               }}
             >
               <Box
                 component="img"
-                src="/founder.jpg" // replace with your path
+                src="/founder.jpg"
                 alt="Kayla Smith"
                 sx={{
                   width: '100%',
@@ -34,6 +36,7 @@ export default function MeetTheFounder() {
                   objectFit: 'cover',
                   display: 'block',
                 }}
+                
               />
             </Card>
             <Typography

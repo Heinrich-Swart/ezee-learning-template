@@ -62,25 +62,26 @@ export default function ProgrammeOverview() {
     <Box sx={{ backgroundColor: '#FBE5A6', color: 'text.primary' }}>
       <Container sx={{ py: { xs: 8, sm: 16 } }}>
         {/* Header */}
-        <Box sx={{ width: { sm: '100%', md: '60%' }, mb: 4 }}>
-          <Typography component="h2" variant="h4" gutterBottom>
-            Ezee learning centre help with:
-          </Typography>
-          <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-            Provide a brief overview of the key features of the product. For example,
-            you could list the number of features, their types or benefits, and add-ons.
-          </Typography>
-        </Box>
+        <Box sx={{ textAlign: 'center', maxWidth: 720, mx: 'auto', mb: 6 }}>
+  <Typography component="h2" variant="h4" sx={{ fontWeight: 'bold', mb: 2 }}>
+    Ezee Learning Centre Help With
+  </Typography>
+  <Typography variant="body1" sx={{ color: 'text.secondary' }}>
+    See how Ezee Learning Centre supports your child’s journey through GED: from exam preparation to
+    personalized tutoring and a flexible online curriculum — all aligned with your goals.
+  </Typography>
+</Box>
 
         {/* Main Layout */}
         <Box
-          sx={{
-            display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' }, // 👈 IMAGE LEFT ON DESKTOP
-            gap: 4,
-            alignItems: 'flex-start',
-          }}
-        >
+      sx={{
+        display: 'flex',
+        flexDirection: { xs: 'column', md: 'row' },
+        gap: 4,
+        alignItems: { xs: 'flex-start', md: 'center' },
+        justifyContent: 'center',
+      }}
+    >
           {/* Image Section */}
           <Card
             sx={{
@@ -91,6 +92,7 @@ export default function ProgrammeOverview() {
               borderRadius: 4,
               boxShadow: 3,
               overflow: 'hidden',
+              backgroundColor: 'transparent',
             }}
           >
             <Box
