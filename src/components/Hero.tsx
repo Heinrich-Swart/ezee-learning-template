@@ -92,36 +92,13 @@ export default function Hero() {
             </Typography>
           </Typography>
           <Typography variant="body1" color="text.secondary">
-            We’re thrilled to have you here! At EzeeLearning, we believe that education should be
-            flexible, empowering, and accessible to everyone. That’s why we offer a fully self-paced,
+            We're thrilled to have you here! At EzeeLearning, we believe that education should be
+            flexible, empowering, and accessible to everyone. That's why we offer a fully self-paced,
             online GED program tailored to suit your lifestyle.
           </Typography>
           <Typography variant="body1" color="text.secondary">
             Whether you're a homeschooling student, a young adult seeking a high school equivalent,
             or someone ready to rewrite their future — you're in the right place.
-          </Typography>
-          <Typography variant="h6" component="h2" sx={{ mt: 2 }}>
-            ✨ Why EzeeLearning?
-          </Typography>
-          <Stack spacing={1} sx={{ textAlign: 'left', maxWidth: 600, margin: '0 auto' }}>
-            <Typography>• SAQA-Recognized GED Program – Equivalent to Grade 12 in South Africa</Typography>
-            <Typography>• Study Anytime, Anywhere – Access your learning portal 24/7 on any device</Typography>
-            <Typography>• One-on-One Tutoring Support – Work with certified teachers who care</Typography>
-            <Typography>• Smart Learning Paths – Let AI help you focus on what matters most</Typography>
-            <Typography>• Exam Prep Made Easy – With downloadable workbooks, quizzes, and videos</Typography>
-            <Typography>• Trusted Testing Centers – Write your GED at a Pearson VUE center near you</Typography>
-          </Stack>
-          <Typography variant="body1" color="text.secondary">
-            You’ll receive all your study materials immediately after registration, and our dedicated
-            support team is with you every step of the way — from your first login to your final test.
-          </Typography>
-          <Typography variant="h6" sx={{ mt: 2 }}>
-            🎓 Ready to start your journey?
-          </Typography>
-          <Typography>
-            Join hundreds of students achieving their dreams with EzeeLearning.
-            <br />
-            <strong>Learn @ Home. Learn with Confidence. Learn for Life.</strong>
           </Typography>
         </Stack>
 

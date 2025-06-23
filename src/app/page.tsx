@@ -21,6 +21,7 @@ import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import NavBar from '@/components/NavBar';
+import MeetTheFounder from '@/components/MeetTheTeam';
 
 export default function EzeeLearingPage(props: { disableCustomTheme?: boolean }) {
   return (
@@ -49,6 +50,11 @@ export default function EzeeLearingPage(props: { disableCustomTheme?: boolean })
         <Divider />
         <div id="faq">
           <FAQ />
+        </div>
+        <Divider />
+        <Divider />
+        <div id="founder">
+          <MeetTheFounder />
         </div>
         <Divider />
         <Footer />

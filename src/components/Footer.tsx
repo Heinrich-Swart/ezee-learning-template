@@ -28,6 +28,7 @@ function Copyright() {
 
 export default function Footer() {
   return (
+    <Box sx={{ backgroundColor: '#FBE5A6', color: '#000' }}>
     <Container
       sx={{
         display: 'flex',
@@ -241,5 +242,6 @@ export default function Footer() {
         </Stack>
       </Box>
     </Container>
+    </Box>
   );
 }
