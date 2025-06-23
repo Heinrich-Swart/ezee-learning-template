@@ -98,10 +98,19 @@ export default function Footer() {
         </Button>
       </Stack>
   
-        <Typography variant="caption" sx={{ mt: 1 }}>
-          By clicking &quot;Join the team&quot; you invest in your kid’s future
+        <Typography
+          sx={{
+            mt: 1,
+            fontSize: {
+              xs: '0.9rem',
+              sm: '1rem',
+              md: '1.05rem'
+            }
+          }}
+        >
+          <strong>By clicking &quot;Join the team&quot; you invest in your kid’s future.</strong><br />
+          Need help? Contact us at <Link href="mailto:ezeelearningcentre@outlook.com">ezeelearningcentre@outlook.com</Link> or <Link href="tel:+27823022371">+27 82 302 2371</Link>
         </Typography>
-  
       <Box
         sx={{
           display: 'flex',

@@ -12,42 +12,42 @@ import Grid from '@mui/material/Grid';
 
 const userTestimonials = [
   {
-    avatar: <Avatar alt="Karen Zoid" src="/static/images/avatar/1.jpg" />,
+    avatar: <Avatar>KZ</Avatar>,
     name: 'Karen Zoid',
     reviewer: 'Parent if a Grade 12 learner',
     testimonial:
       "Enrolling my child in Ezee Learning Centre has been one of the best decisions we've made. The flexibility and support have made homeschooling stress-free and effective.",
   },
   {
-    avatar: <Avatar alt="Jack Parrow" src="/static/images/avatar/2.jpg" />,
+    avatar: <Avatar>JP</Avatar>,
     name: 'Jack Parrow',
     reviewer: 'Proud dad',
     testimonial:
       "We've seen a huge boost in our daughter's confidence and enthusiasm for learning. The curriculum is engaging and the team is always helpful.",
   },
   {
-    avatar: <Avatar alt="Karlien Van Jaarsveld" src="/static/images/avatar/3.jpg" />,
+    avatar: <Avatar>KJ</Avatar>,
     name: 'Karlien Van Jaarsveld',
     reviewer: 'Homeschooling Parent',
     testimonial:
       "The structured yet flexible program fits perfectly into our routine. I love being more involved in my child's education and seeing real progress.",
   },
   {
-    avatar: <Avatar alt="Theuns Jordaan" src="/static/images/avatar/4.jpg" />,
+    avatar: <Avatar>TJ</Avatar>,
     name: 'Theuns Jordaan',
     reviewer: 'Father of a Grade 12 student',
     testimonial:
       "I was nervous about switching to homeschooling, but Ezee Learning Centre made the transition so smooth. My son is thriving academically and emotionally!",
   },
   {
-    avatar: <Avatar alt="Travis Howard" src="/static/images/avatar/5.jpg" />,
+    avatar: <Avatar>BW</Avatar>,
     name: 'Bernice West',
     reviewer: 'Parent',
     testimonial:
       "We appreciate the consistent communication and resources provided. It feels like we're part of a supportive community that truly cares.",
   },
   {
-    avatar: <Avatar alt="Cindy Baker" src="/static/images/avatar/6.jpg" />,
+    avatar: <Avatar>BP</Avatar>,
     name: 'Brendan Peyper',
     reviewer: 'Proud parents of two kids',
     testimonial:
