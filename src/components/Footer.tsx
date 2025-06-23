@@ -15,17 +15,6 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import emailjs from 'emailjs-com';
 import { toast } from 'react-toastify';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
-      {'Copyright © '}
-      EzeeLearning
-      &nbsp;
-      {new Date().getFullYear()}
-    </Typography>
-  );
-}
-
 export default function Footer() {
   const [newsletterEmail, setNewsletterEmail] = React.useState('');
 
@@ -54,16 +43,6 @@ export default function Footer() {
       console.error(err);
       toast.error('There was an error. Please try again later.');
     });
-  };
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    const headerOffset = 80;
-  
-    if (element) {
-      const y = element.getBoundingClientRect().top + window.scrollY - headerOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
   };
 
   return (
@@ -119,9 +98,9 @@ export default function Footer() {
         </Button>
       </Stack>
   
-      <Typography variant="caption" sx={{ mt: 1 }}>
-        By clicking "Join the team" you invest in your kid’s future
-      </Typography>
+        <Typography variant="caption" sx={{ mt: 1 }}>
+          By clicking &quot;Join the team&quot; you invest in your kid’s future
+        </Typography>
   
       <Box
         sx={{

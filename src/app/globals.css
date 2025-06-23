@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 :root {
+  --background: #fffbe6; /* Light gold background */
+  --foreground: #171717;
   --color-red: #F44336;
   --color-orange: #F59E0B;
   --color-pink: #FBB6CE;
@@ -15,15 +17,8 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
+  background: var(--background);  /* now = #fffbe6 */
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }

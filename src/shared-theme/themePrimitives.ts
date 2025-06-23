@@ -24,7 +24,8 @@ declare module '@mui/material/styles' {
     900: string;
   }
 
-  interface PaletteColor extends ColorRange {}
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+interface PaletteColor extends ColorRange {} // Intentional alias for clarity in theme overrides
 
   interface Palette {
     baseShadow: string;
@@ -46,6 +47,19 @@ export const gold = {
   700: '#8B6C00',
   800: '#5C4600',
   900: '#3A2C00',
+};
+
+export const orange = {
+  50: '#FFF3E0',
+  100: '#FFE0B2',
+  200: '#FFCC80',
+  300: '#FFB74D',
+  400: '#FFA726',
+  500: '#FF9800',
+  600: '#FB8C00',
+  700: '#F57C00',
+  800: '#EF6C00',
+  900: '#E65100',
 };
 
 export const brand = gold;
@@ -248,7 +262,7 @@ export const shape = {
   borderRadius: 8,
 };
 
-// @ts-ignore
+// @ts-expect-error -- 'var(--template-palette-baseShadow)' is not a valid string for MUI shadow type
 const defaultShadows: Shadows = [
   'none',
   'var(--template-palette-baseShadow)',

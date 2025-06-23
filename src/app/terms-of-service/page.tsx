@@ -44,7 +44,7 @@ export default function TermsOfServicePage() {
         </Section>
 
         <Section title="6. Limitation of Liability">
-          We are not liable for any damages or losses resulting from the use of our services. All services are provided "as is" without warranty of any kind.
+          We are not liable for any damages or losses resulting from the use of our services. All services are provided &quot;as is&quot; without warranty of any kind.
         </Section>
 
         <Section title="7. Contact">

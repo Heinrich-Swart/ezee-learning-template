@@ -3,11 +3,9 @@
 import * as React from 'react';
 import {
   Box,
-  Button,
   Card,
   Container,
   Typography,
-  useTheme,
 } from '@mui/material';
 import SchoolRoundedIcon from '@mui/icons-material/SchoolRounded';
 import ChecklistRoundedIcon from '@mui/icons-material/ChecklistRounded';
@@ -56,7 +54,6 @@ const items = [
 export default function ProgrammeOverview() {
   const [selectedItemIndex, setSelectedItemIndex] = React.useState(0);
   const selectedFeature = items[selectedItemIndex];
-  const theme = useTheme();
 
   return (
     <Box sx={{ backgroundColor: '#FBE5A6', color: 'text.primary' }}>

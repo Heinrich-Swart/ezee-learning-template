@@ -23,7 +23,6 @@ export default function MeetTheFounder() {
                 height: 360,
                 mx: 'auto',
                 backgroundColor: 'transparent',
-
               }}
             >
               <Box
@@ -36,7 +35,6 @@ export default function MeetTheFounder() {
                   objectFit: 'cover',
                   display: 'block',
                 }}
-                
               />
             </Card>
             <Typography
@@ -54,14 +52,14 @@ export default function MeetTheFounder() {
             </Typography>
 
             <Typography variant="body1" sx={{ color: 'text.secondary', mb: 3 }}>
-              With a heart rooted in compassion and a lifelong passion for education, our founder has always believed in the power of nurturing young minds. Her love for children goes beyond academics — it's about building confidence, creating safe learning spaces, and celebrating every small victory.
+              With a heart rooted in compassion and a lifelong passion for education, our founder has always believed in the power of nurturing young minds. Her love for children goes beyond academics — it’s about building confidence, creating safe learning spaces, and celebrating every small victory.
               <br /><br />
               Ezee Learning was born from this vision: to make quality education accessible, flexible, and joyful for learners at home. Through personalized tutoring, interactive resources, and a caring community, she ensures every child feels seen, supported, and inspired to succeed.
             </Typography>
 
             <Typography variant="body1" sx={{ fontStyle: 'italic' }}>
               “Every child has the potential to shine — they just need someone who believes in them.
-              That's what Ezee Learning is here for.”
+              That’s what Ezee Learning is here for.”
             </Typography>
           </Box>
         </Box>

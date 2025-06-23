@@ -1,41 +1,10 @@
-'use client'
+'use client';
 
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-import InputLabel from '@mui/material/InputLabel';
-import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import visuallyHidden from '@mui/utils/visuallyHidden';
-import { styled } from '@mui/material/styles';
-
-const StyledBox = styled('div')(({ theme }) => ({
-  alignSelf: 'center',
-  width: '100%',
-  height: 400,
-  marginTop: theme.spacing(8),
-  borderRadius: (theme.vars || theme).shape.borderRadius,
-  outline: '6px solid',
-  outlineColor: 'hsla(220, 25%, 80%, 0.2)',
-  border: '1px solid',
-  borderColor: (theme.vars || theme).palette.grey[200],
-  boxShadow: '0 0 12px 8px hsla(220, 25%, 80%, 0.2)',
-  backgroundImage: `url('/welcome.svg')`,
-  backgroundSize: 'cover',
-  [theme.breakpoints.up('sm')]: {
-    marginTop: theme.spacing(10),
-    height: 700,
-  },
-  ...theme.applyStyles('dark', {
-    boxShadow: '0 0 24px 12px hsla(210, 100%, 25%, 0.2)',
-    backgroundImage: `url('/welcome.svg')`,
-    outlineColor: 'hsla(220, 20%, 42%, 0.1)',
-    borderColor: (theme.vars || theme).palette.grey[700],
-  }),
-}));
 
 export default function Hero() {
   return (
@@ -67,7 +36,7 @@ export default function Hero() {
           useFlexGap
           sx={{ alignItems: 'center', width: { xs: '100%', sm: '70%' } }}
         >
-        <Typography
+          <Typography
             variant="h1"
             sx={{
               display: 'flex',
@@ -91,19 +60,18 @@ export default function Hero() {
               EzeeLearning
             </Typography>
           </Typography>
+
           <Typography variant="body1" color="text.secondary">
-            We're thrilled to have you here! At EzeeLearning, we believe that education should be
-            flexible, empowering, and accessible to everyone. That's why we offer a fully self-paced,
+            We’re thrilled to have you here! At EzeeLearning, we believe that education should be
+            flexible, empowering, and accessible to everyone. That’s why we offer a fully self-paced,
             online GED program tailored to suit your lifestyle.
           </Typography>
+
           <Typography variant="body1" color="text.secondary">
-            Whether you're a homeschooling student, a young adult seeking a high school equivalent,
-            or someone ready to rewrite their future — you're in the right place.
+            Whether you’re a homeschooling student, a young adult seeking a high school equivalent,
+            or someone ready to rewrite their future — you’re in the right place.
           </Typography>
         </Stack>
-
-        {/* Existing Section Below */}
-        
       </Container>
     </Box>
   );

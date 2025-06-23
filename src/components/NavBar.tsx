@@ -16,14 +16,6 @@ import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import EzeeLearningLogo from './EzeeLearningLogo';
 import ColorModeIconDropdown from '@/shared-theme/ColorModeIconDropdown';
 
-const navItems = [
-  { label: 'Programme Overview', color: 'secondary.main' },
-  { label: 'Testimonials', color: '#D72638' },
-  { label: 'Our Promise', color: 'text.primary' },
-  { label: 'Pricing', color: 'primary.main' },
-  { label: 'FAQ', color: '#000000' },
-];
-
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',

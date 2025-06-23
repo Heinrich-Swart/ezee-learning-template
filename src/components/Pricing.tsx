@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import * as React from 'react';
 import {
@@ -68,7 +68,30 @@ const cards = {
   },
 };
 
-function PricingCard({ title, price, timespan, description, subheader }: any) {
+type FormField = 'name' | 'surname' | 'email' | 'number';
+
+interface FormData {
+  name: string;
+  surname: string;
+  email: string;
+  number: string;
+  plan: string;
+  additionalInfo: string;
+}
+
+function PricingCard({
+  title,
+  price,
+  timespan,
+  description,
+  subheader,
+}: {
+  title: string;
+  price: string;
+  timespan: string;
+  description: string[];
+  subheader?: string;
+}) {
   return (
     <Card sx={{ p: 3, flex: 1 }}>
       <CardContent>
@@ -92,7 +115,7 @@ function PricingCard({ title, price, timespan, description, subheader }: any) {
           <Typography component="h3" variant="h6">&nbsp;{timespan}</Typography>
         </Box>
         <Divider sx={{ my: 2 }} />
-        {description.map((line: string) => (
+        {description.map((line) => (
           <Box key={line} sx={{ py: 1, display: 'flex', gap: 1.5, alignItems: 'center' }}>
             <CheckCircleRoundedIcon sx={{ width: 20, color: 'primary.main' }} />
             <Typography variant="subtitle2" component="span">
@@ -107,7 +130,7 @@ function PricingCard({ title, price, timespan, description, subheader }: any) {
 
 export default function Pricing() {
   const [open, setOpen] = useState(false);
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<FormData>({
     name: '',
     surname: '',
     email: '',
@@ -119,7 +142,7 @@ export default function Pricing() {
   const handleDialogOpen = () => setOpen(true);
   const handleDialogClose = () => setOpen(false);
 
-  const handleChange = (field: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (field: keyof FormData) => (event: React.ChangeEvent<HTMLInputElement>) => {
     setForm(prev => ({ ...prev, [field]: event.target.value }));
   };
 
@@ -142,13 +165,13 @@ export default function Pricing() {
       email: email,
       title: plan,
       message: `
-  A new enquiry has been submitted:
-  
-  Name: ${name} ${surname}
-  Email: ${email}
-  Phone Number: ${number || 'Not provided'}
-  Selected Plan: ${plan}
-  Message: ${additionalInfo || 'No message entered'}
+A new enquiry has been submitted:
+
+Name: ${name} ${surname}
+Email: ${email}
+Phone Number: ${number || 'Not provided'}
+Selected Plan: ${plan}
+Message: ${additionalInfo || 'No message entered'}
       `,
     };
 
@@ -159,7 +182,7 @@ export default function Pricing() {
       'JCzjDGZdOwADwXbqF'
     )
       .then(() => {
-        toast.success("Your message was sent successfully!");
+        toast.success('Your message was sent successfully!');
         handleDialogClose();
         setForm({
           name: '',
@@ -172,7 +195,7 @@ export default function Pricing() {
       })
       .catch((error) => {
         console.error(error);
-        toast.error("Failed to send your message. Please try again later.");
+        toast.error('Failed to send your message. Please try again later.');
       });
   };
 
@@ -193,7 +216,7 @@ export default function Pricing() {
           Pricing
         </Typography>
         <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-          Explore flexible learning plans designed to fit every family's needs. Whether you're just getting started or looking for full support, our packages offer quality education, live classes, and helpful resources—all at an affordable price.
+          Explore flexible learning plans designed to fit every family’s needs. Whether you’re just getting started or looking for full support, our packages offer quality education, live classes, and helpful resources—all at an affordable price.
         </Typography>
       </Box>
 
@@ -232,7 +255,7 @@ export default function Pricing() {
 
       <Box sx={{ mt: 6 }}>
         <Button variant="contained" size="large" onClick={handleDialogOpen}>
-          Let's get chatting
+          Let’s get chatting
         </Button>
       </Box>
 
@@ -263,19 +286,14 @@ export default function Pricing() {
         </DialogTitle>
         <DialogContent sx={{ position: 'relative', zIndex: 1 }}>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 1 }}>
-            {[
-              { label: 'Name *', field: 'name' },
-              { label: 'Surname', field: 'surname' },
-              { label: 'Email', field: 'email', type: 'email' },
-              { label: 'Phone Number', field: 'number', type: 'tel' },
-            ].map(({ label, field, type }) => (
+            {(['name', 'surname', 'email', 'number'] as FormField[]).map((field) => (
               <TextField
                 key={field}
-                label={label}
-                value={(form as any)[field]}
+                label={`${field.charAt(0).toUpperCase() + field.slice(1)}${field === 'name' ? ' *' : ''}`}
+                value={form[field]}
                 onChange={handleChange(field)}
                 fullWidth
-                type={type || 'text'}
+                type={field === 'email' ? 'email' : field === 'number' ? 'tel' : 'text'}
                 sx={{
                   backgroundColor: '#fffbe6',
                   '& .MuiInputBase-root': { backgroundColor: '#fffbe6' },

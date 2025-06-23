@@ -83,11 +83,9 @@ export default function OurPromise() {
             Our Promise
           </Typography>
           <Typography variant="body1" sx={{ color: 'grey.400' }}>
-          At Ezee Learning Centre, we’re committed to delivering quality education that's flexible, 
-          accessible, and effective. From expert support and engaging content to a user-friendly experience—every 
-          detail is designed to help your child succeed, wherever they are.
-
-
+            At Ezee Learning Centre, we&rsquo;re committed to delivering quality education that&rsquo;s flexible,
+            accessible, and effective. From expert support and engaging content to a user-friendly experience —
+            every detail is designed to help your child succeed, wherever they are.
           </Typography>
         </Box>
         <Grid container spacing={2}>
