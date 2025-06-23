@@ -1,13 +1,13 @@
-import { NextConfig } from 'next/dist/server/config';
+const isProd = process.env.NODE_ENV === 'production';
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   output: "export",
   trailingSlash: true,
   images: {
     unoptimized: true,
   },
-  basePath: "/ezee-learning-template",
-  assetPrefix: "/ezee-learning-template",
+  basePath: isProd ? "/ezee-learning-template" : "",
+  assetPrefix: isProd ? "/ezee-learning-template" : "",
 };
 
 export default nextConfig;

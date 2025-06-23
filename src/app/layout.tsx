@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description:"Ezee Learning Centre offers flexible, self-paced online GED preparation with personalized tutoring, AI-powered learning paths, and SAQA-recognized certification support in South Africa.",
   icons: [
     { rel: "icon", url: "/ezee-icon.png" },
-    { rel: "shortcut icon", url: "/logo.svg" }, // fallback
+    { rel: "shortcut icon", url: "/favicon.ico" }, // fallback
   ],
 };
 
