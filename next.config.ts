@@ -1,13 +1,9 @@
-const isProd = process.env.NODE_ENV === 'production';
-
 const nextConfig = {
-  output: "export",
   trailingSlash: true,
   images: {
     unoptimized: true,
   },
-  basePath: isProd ? "/ezee-learning-template" : "",
-  assetPrefix: isProd ? "/ezee-learning-template" : "",
+  output: 'standalone', // optional for Vercel
 };
 
 export default nextConfig;
