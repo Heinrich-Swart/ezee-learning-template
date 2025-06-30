@@ -23,7 +23,7 @@ const items = [
   {
     icon: <ChecklistRoundedIcon fontSize="medium" />,
     title: 'Exam Preparation',
-    description: 'Access structured resources and tutoring sessions to help you prepare confidently for GED exams.',
+    description: 'Access structured resources and tutoring sessions to help you prepare confidently for American Curriculum exams.',
     imageLight: '/exam-prep.png',
   },
   {
@@ -67,7 +67,7 @@ export default function ProgrammeOverview() {
             Ezee Learning Centre Help With
           </Typography>
           <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-            See how Ezee Learning Centre supports your child’s journey through GED: from exam preparation to
+            See how Ezee Learning Centre supports your child’s journey through American Curriculum: from exam preparation to
             personalized tutoring and a flexible online curriculum — all aligned with your goals.
           </Typography>
         </Box>

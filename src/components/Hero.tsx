@@ -7,72 +7,125 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 export default function Hero() {
+  const [scrollY, setScrollY] = React.useState(0);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const maxShift = 50;
+  const shift = Math.min(scrollY, maxShift);
+
+  const maxFadeStart = 0;
+  const maxFadeEnd = 50;
+  const fade = Math.min(Math.max((scrollY - maxFadeStart) / (maxFadeEnd - maxFadeStart), 0), 1);
+
   return (
-    <Box
-      id="hero"
-      sx={(theme) => ({
-        width: '100%',
-        backgroundRepeat: 'no-repeat',
-        backgroundImage:
-          'radial-gradient(ellipse 80% 50% at 50% -20%, hsl(210, 100%, 90%), transparent)',
-        ...theme.applyStyles('dark', {
-          backgroundImage:
-            'radial-gradient(ellipse 80% 50% at 50% -20%, hsl(210, 100%, 16%), transparent)',
-        }),
-      })}
-    >
-      <Container
+    <>
+      {/* Hero with only the heading over the image */}
+      <Box
+        id="hero"
         sx={{
+          width: '100%',
+          overflow: 'hidden',
+          backgroundColor: '#fff8ee',
           display: 'flex',
-          flexDirection: 'column',
+          justifyContent: 'center',
           alignItems: 'center',
-          pt: { xs: 14, sm: 20 },
-          pb: { xs: 8, sm: 12 },
+          position: 'relative',
+          minHeight: '100vh',
         }}
       >
-        {/* Welcome Message Section */}
-        <Stack
-          spacing={2}
-          useFlexGap
-          sx={{ alignItems: 'center', width: { xs: '100%', sm: '70%' } }}
+        {/* Background image fade-in */}
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            backgroundImage: `linear-gradient(to bottom, rgba(255, 248, 238, 0) 70%, #fff8ee 100%), url('/cover-image2.0.png')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            opacity: fade,
+            transition: 'opacity 0.6s ease-out',
+            zIndex: 1,
+          }}
+        />
+
+        {/* Only the heading here */}
+        <Container
+          sx={{
+            position: 'relative',
+            textAlign: 'center',
+            transform: `translateY(-${shift}px)`,
+            transition: 'transform 0.2s ease-out',
+            maxWidth: { xs: '90%', sm: '70%' },
+            zIndex: 2,
+            pt: { xs: 8, sm: 12 },
+          }}
         >
           <Typography
-            variant="h1"
+            variant="h2"
             sx={{
-              display: 'flex',
-              flexDirection: { xs: 'column', sm: 'row' },
-              alignItems: 'center',
-              fontSize: 'clamp(3rem, 10vw, 3.5rem)',
+              fontSize: 'clamp(2.5rem, 8vw, 3.5rem)',
+              fontWeight: 700,
+              color: 'primary.main',
             }}
           >
-            Welcome&nbsp;to&nbsp;
+            Ezee Learning
+          </Typography>
+          <Typography
+            variant="h2"
+            sx={{
+              fontSize: 'clamp(2.5rem, 8vw, 3.5rem)',
+              fontWeight: 700,
+              color: 'primary.main',
+            }}
+          >
+          Empowering Students for Success
+          </Typography>
+        </Container>
+      </Box>
+
+      {/* New white section below with the rest of the text */}
+      <Box
+        sx={{
+          backgroundColor: '#fff8ee',
+          py: { xs: 8, sm: 12 },
+        }}
+      >
+        <Container maxWidth="md">
+          <Stack spacing={4} textAlign="center">
             <Typography
-              component="span"
-              variant="h1"
-              sx={(theme) => ({
-                fontSize: 'inherit',
-                color: 'primary.main',
-                ...theme.applyStyles('dark', {
-                  color: 'primary.light',
-                }),
-              })}
+              variant="body1"
+              sx={{
+                fontWeight: 600,
+                color: '#c29234',
+              }}
             >
-              EzeeLearning
+              Personalized Online Tutoring for Academic Excellence
             </Typography>
-          </Typography>
 
-          <Typography variant="body1" color="text.secondary">
-            We’re thrilled to have you here! At EzeeLearning, we believe that education should be
-            flexible, empowering, and accessible to everyone. That’s why we offer a fully self-paced,
-            online GED program tailored to suit your lifestyle.
-          </Typography>
-
-          <Typography variant="body1" color="text.secondary">
-            Whether you’re a homeschooling student, a young adult seeking a high school equivalent,
-            or someone ready to rewrite their future — you’re in the right place.
-          </Typography>
-        </Stack>
-      </Container>
-    </Box>
+            <Typography
+              variant="body1"
+              sx={{
+                color: '#3c2f1e',
+              }}
+            >
+              We’re thrilled to have you here! At EasyLearning, we believe that education should be flexible,
+              empowering, and accessible to everyone. That’s why we offer a fully self-paced, online American Curriculum program
+              tailored to suit your lifestyle.
+            </Typography>
+          </Stack>
+        </Container>
+      </Box>
+    </>
   );
 }

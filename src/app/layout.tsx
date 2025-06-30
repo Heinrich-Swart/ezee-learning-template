@@ -16,11 +16,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Ezee Learning Centre",
-  description:"Ezee Learning Centre offers flexible, self-paced online GED preparation with personalized tutoring, AI-powered learning paths, and SAQA-recognized certification support in South Africa.",
-  icons: [
-    { rel: "icon", url: "/ezee-icon.png" },
-    { rel: "shortcut icon", url: "/favicon.ico" }, // fallback
-  ],
+  description:"Ezee Learning Centre offers flexible, self-paced online American Curriculum preparation with personalized tutoring, AI-powered learning paths, and SAQA-recognized certification support in South Africa.",
+  icons: {
+  icon: "broswer-icon-background.ico",
+  shortcut: "broswer-icon-background.ico",
+}
 };
 
 export default function RootLayout({

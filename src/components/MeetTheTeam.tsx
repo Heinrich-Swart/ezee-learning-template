@@ -27,7 +27,7 @@ export default function MeetTheFounder() {
             >
               <Box
                 component="img"
-                src="/founder.jpg"
+                src="/founder-new.png"
                 alt="Kayla Smith"
                 sx={{
                   width: '100%',

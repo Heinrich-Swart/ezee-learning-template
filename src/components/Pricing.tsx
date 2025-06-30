@@ -43,7 +43,7 @@ const cards = {
     timespan: 'per subject',
     subheader: 'Most Popular',
     description: [
-      '4 GED subjects in total',
+      '4 American Curriculum subjects in total',
       'Exams written at Pearson VUE centers',
       'Book per subject when ready',
     ],
@@ -62,7 +62,7 @@ const cards = {
     price: 'Varies',
     timespan: 'per subject',
     description: [
-      'GED Licence Fee (once-off)',
+      'American Curriculum Licence Fee (once-off)',
       'Registration Fee (initial sign-up)',
     ],
   },
