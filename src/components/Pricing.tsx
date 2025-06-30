@@ -62,8 +62,6 @@ const cards = {
     price: "",
     timespan: "",
     description: [
-      "Licence Fee: R4 500 (valid 12 months)",
-      "Registration Fee: R3 850 (to join)",
     ],
   },
 };
@@ -130,16 +128,8 @@ function PricingCard({
         </Box>
 
         {isOnceOff ? (
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              mt: 2,
-              mb: 2,
-            }}
-          >
-            <Box sx={{ display: "flex", alignItems: "center" }}>
+          <>
+            <Box sx={{ display: "flex", alignItems: "center", mt: 2, mb: 1 }}>
               <Typography component="h3" variant="h3">
                 R4 500
               </Typography>
@@ -147,11 +137,11 @@ function PricingCard({
                 once-off
               </Typography>
             </Box>
-            <Typography variant="subtitle2" sx={{ color: "text.secondary" }}>
+            <Typography variant="subtitle2" sx={{ color: "text.secondary", mb: 2 }}>
               Licence Fee (12 months)
             </Typography>
 
-            <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
+            <Box sx={{ display: "flex", alignItems: "center", mt: 1, mb: 1 }}>
               <Typography component="h3" variant="h3">
                 R3 850
               </Typography>
@@ -162,32 +152,33 @@ function PricingCard({
             <Typography variant="subtitle2" sx={{ color: "text.secondary" }}>
               Registration Fee (to join)
             </Typography>
-          </Box>
+          </>
         ) : (
-          <Box sx={{ display: "flex", alignItems: "center", mt: 2, mb: 2 }}>
-            <Typography component="h3" variant="h3">
-              {price}
-            </Typography>
-            <Typography variant="h6" sx={{ ml: 1, color: "text.secondary" }}>
-              {timespan}
-            </Typography>
-          </Box>
+          <>
+            <Box sx={{ display: "flex", alignItems: "center", mt: 2, mb: 2 }}>
+              <Typography component="h3" variant="h3">
+                {price}
+              </Typography>
+              <Typography variant="h6" sx={{ ml: 1, color: "text.secondary" }}>
+                {timespan}
+              </Typography>
+            </Box>
+            <Divider sx={{ my: 2, borderColor: "rgba(0,0,0,0.1)" }} />
+            {description.map((line) => (
+              <Box
+                key={line}
+                sx={{ py: 1, display: "flex", gap: 1.5, alignItems: "center" }}
+              >
+                <CheckCircleRoundedIcon
+                  sx={{ width: 18, height: 18, color: "primary.light" }}
+                />
+                <Typography variant="subtitle2" component="span">
+                  {line}
+                </Typography>
+              </Box>
+            ))}
+          </>
         )}
-
-        <Divider sx={{ my: 2, borderColor: "rgba(0,0,0,0.1)" }} />
-        {description.map((line) => (
-          <Box
-            key={line}
-            sx={{ py: 1, display: "flex", gap: 1.5, alignItems: "center" }}
-          >
-            <CheckCircleRoundedIcon
-              sx={{ width: 18, height: 18, color: "primary.light" }}
-            />
-            <Typography variant="subtitle2" component="span">
-              {line}
-            </Typography>
-          </Box>
-        ))}
       </CardContent>
     </Card>
   );
