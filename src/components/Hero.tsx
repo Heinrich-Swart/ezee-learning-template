@@ -119,7 +119,7 @@ export default function Hero() {
                 color: '#3c2f1e',
               }}
             >
-              We’re thrilled to have you here! At EasyLearning, we believe that education should be flexible,
+              We’re thrilled to have you here! At Ezee Learning, we believe that education should be flexible,
               empowering, and accessible to everyone. That’s why we offer a fully self-paced, online American Curriculum program
               tailored to suit your lifestyle.
             </Typography>

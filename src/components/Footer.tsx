@@ -28,7 +28,6 @@ export default function Footer() {
 
     const templateParams = {
       email: newsletterEmail,
-      message: `Someone joined the newsletter: ${newsletterEmail}`,
     };
 
     emailjs.send(
